@@ -182,7 +182,7 @@ class TCPInputSourceThread(threading.Thread):
             srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             srv.bind((self.host, self.port))
             srv.listen(1)
-            srv.settimeout(0.1)
+            srv.settimeout(0.1) # it was .5 before
             self._srv = srv
             print(f"[TCPInput] Listening on {self.host}:{self.port}")
 
