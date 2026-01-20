@@ -182,7 +182,7 @@ class TCPInputSourceThread(threading.Thread):
             srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             srv.bind((self.host, self.port))
             srv.listen(1)
-            srv.settimeout(0.5)
+            srv.settimeout(0.1)
             self._srv = srv
             print(f"[TCPInput] Listening on {self.host}:{self.port}")
 
@@ -195,7 +195,7 @@ class TCPInputSourceThread(threading.Thread):
                     break
 
                 print(f"[TCPInput] Client connected from {addr}")
-                conn.settimeout(0.5)
+                conn.settimeout(0.1)
 
                 try:
                     while not self.stop_event.is_set():
